@@ -1,0 +1,18 @@
+//Ajouter une classe mere pour les manager elle même en classe fille de singleton<T>
+pour mettre les shutDown() et startUp()... (Cela servira au "futur" dev de ce code pour leurs obliger à implementer shutDown() et startUp()..)
+
+//REGARDER ET APPRENDRE LE CASTING...static_cast<>...
+
+
+//std::shared_ptr<Logger::FileLog> fileLog1 (new Logger::FileLog("fileLog1", "Output1.txt"));
+//std::shared_ptr<Logger::FileLog> fileLog2 (new Logger::FileLog("fileLog2", "Output2.txt"));
+changer les shared_ptr en unique_ptr beaucoup plus logique les logger ne seront pas dupliquer ...
+
+//Dans les custom allocator, ajouter l'opti d'alignement (voir game engine architecture 3 )
+//et ajouter les tracking des allocations est des free :
+Memory tracking is used for finding memory leaks by keeping track of each allocation made during the lifetime of an application. Memory tracking comes in several flavours:
+https://blog.molecular-matters.com/2011/07/15/memory-system-part-4/
+No memory tracking (retail builds).
+Simple memory tracking. Can already detect the presence of leaks by counting the number of allocations e.g. via ++numAllocations and –numAllocations. Does not detect where leaks are coming from (very fast, usable in all builds)
+Extended memory tracking. Additionally stores the file name and line number where the allocation was originally made (still fast, needs additional memory).
+Full memory tracking. Stores a full callstack for each allocation – useful every now and then for hard-to-track-down leaks (slow, needs even more memory).

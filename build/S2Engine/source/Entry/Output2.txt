@@ -1,0 +1,2 @@
+FILELOG2
+CLOSING THE LOG... Output2.txt
